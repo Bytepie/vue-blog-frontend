@@ -1,6 +1,6 @@
 <script setup lang="ts">
-// import { RouterLink, RouterView } from 'vue-router'
-import AuthPage from "@/views/auth/AuthPage.vue";
+import { RouterLink, RouterView } from 'vue-router'
+// import home from "@/views/home/home.vue";
 
 </script>
 
@@ -18,5 +18,16 @@ import AuthPage from "@/views/auth/AuthPage.vue";
     </div>
   </header> -->
   <!-- <RouterView /> -->
-  <AuthPage/>
+  <div class="container">
+    <div class="flex flex-row">
+      <div class="flex-col">
+        <router-link to="/">Home</router-link>
+        <router-link to="/login">Login</router-link>
+        <router-link to="/register">Register</router-link>
+      </div>
+    </div>
+    <RouterView />
+  </div>
+
+
 </template>
