@@ -18,5 +18,5 @@ import AuthPage from "@/views/auth/AuthPage.vue";
     </div>
   </header> -->
   <!-- <RouterView /> -->
-  <AuthPage />
+  <AuthPage/>
 </template>
