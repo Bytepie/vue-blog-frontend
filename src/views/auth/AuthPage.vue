@@ -14,7 +14,7 @@ const handleUpdateValue = (value: string) => {
     <RouterView></RouterView>
 </template> -->
 <template>
-    <section class="bg-white">
+    <section class="bg-white w-full">
         <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
             <aside class="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
                 <img alt="login"
@@ -62,41 +62,3 @@ const handleUpdateValue = (value: string) => {
         </div>
     </section>
 </template>
-
-<style>
-/* Slide effect with increased duration */
-.slide-enter-active,
-.slide-leave-active {
-    transition: transform 1s ease;
-}
-
-.slide-enter,
-.slide-leave-to {
-    transform: translateX(100%);
-    /* Slide from the right */
-}
-
-/* Alternatively, a zoom effect */
-.zoom-enter-active,
-.zoom-leave-active {
-    transition: transform .2s ease;
-}
-
-.zoom-enter,
-.zoom-leave-to {
-    transform: scale(2);
-    /* Slightly zoomed out */
-    opacity: 1;
-}
-
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.fade-slide-enter,
-.fade-slide-leave-to {
-    opacity: 0;
-    transform: translateX(10px);
-}
-</style>
