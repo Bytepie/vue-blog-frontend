@@ -46,9 +46,15 @@ const handleUpdateValue = (value: string) => {
                     </p>
 
 
-                    <router-view @updateTitle="handleUpdateValue"></router-view>
+                    <!-- <transition name="zoom" mode="out-in">
+                        <router-view @updateTitle="handleUpdateValue"></router-view>
+                    </transition> -->
 
-
+                    <router-view v-slot="{ Component }">
+                        <transition name="zoom">
+                            <component :is="Component" />
+                        </transition>
+                    </router-view>
 
 
                 </div>
@@ -56,3 +62,30 @@ const handleUpdateValue = (value: string) => {
         </div>
     </section>
 </template>
+
+<style>
+/* Slide effect with increased duration */
+.slide-enter-active,
+.slide-leave-active {
+    transition: transform 1s ease;
+}
+
+.slide-enter,
+.slide-leave-to {
+    transform: translateX(100%);
+    /* Slide from the right */
+}
+
+/* Alternatively, a zoom effect */
+.zoom-enter-active,
+.zoom-leave-active {
+    transition: transform 4s ease;
+}
+
+.zoom-enter,
+.zoom-leave-to {
+    transform: scale(2);
+    /* Slightly zoomed out */
+    opacity: 1;
+}
+</style>
