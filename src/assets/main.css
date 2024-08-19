@@ -2,39 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Slide effect with increased duration */
 .slide-enter-active,
 .slide-leave-active {
-    transition: transform 1s ease;
+  transition: transform 1s ease;
 }
 
 .slide-enter,
 .slide-leave-to {
-    transform: translateX(100%);
-    /* Slide from the right */
+  transform: translateX(100%);
+  /* Slide from the right */
 }
 
 /* Alternatively, a zoom effect */
 .zoom-enter-active,
 .zoom-leave-active {
-    transition: transform .2s ease;
+  transition: transform 0.2s ease;
 }
 
 .zoom-enter,
 .zoom-leave-to {
-    transform: scale(2);
-    /* Slightly zoomed out */
-    opacity: 1;
+  transform: scale(2);
+  /* Slightly zoomed out */
+  opacity: 1;
 }
 
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-    transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .fade-slide-enter,
 .fade-slide-leave-to {
-    opacity: 0;
-    transform: translateX(10px);
+  opacity: 0;
+  /* transform: translateX(2px); */
+  /* transform: scale(0); */
 }
