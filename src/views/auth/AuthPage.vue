@@ -51,16 +51,17 @@ const handleUpdateValue = (value: string) => {
           <p class="mt-4 leading-relaxed text-gray-500">
             Start Your Day Fresh!
           </p>
+          <!-- <div v-if="$route.name === 'authpage'">
+            <button>Login</button>
+            <button>Register</button>
+          </div> -->
+          <router-view @updateTitle="handleUpdateValue"></router-view>
 
-          <!-- <transition name="zoom" mode="out-in">
-                        <router-view @updateTitle="handleUpdateValue"></router-view>
-                    </transition> -->
-
-          <router-view v-slot="{ Component }" @updateTitle="handleUpdateValue">
+          <!-- <router-view v-slot="{ Component }" @updateTitle="handleUpdateValue">
             <transition name="fade-slide" mode="out-in">
               <component :is="Component" />
             </transition>
-          </router-view>
+          </router-view> -->
         </div>
       </main>
     </div>

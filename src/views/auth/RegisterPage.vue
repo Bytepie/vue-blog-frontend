@@ -1,66 +1,118 @@
 <script lang="ts" setup>
-import { defineEmits } from 'vue';
-import { onMounted } from 'vue';
+import { defineEmits } from "vue";
+import { onMounted, ref } from "vue";
+import type { Ref } from "vue";
+import type { RegisterCredentials } from "@/types/auth";
+import useVuelidate from "@vuelidate/core";
+import { required, email } from "@vuelidate/validators";
 
-const emit = defineEmits<{ (event: 'updateTitle', value: string): void }>();
+const emit = defineEmits<{ (event: "updateTitle", value: string): void }>();
 const sendValue = () => {
-    emit('updateTitle', 'Register: Welcome to Our Blog!');
+  emit("updateTitle", "Register: Welcome to Our Blog!");
 };
 
 onMounted(() => {
-    sendValue();
+  sendValue();
 });
 
+const rules = {
+  name: { required },
+  email: { required, email },
+  password: { required },
+};
+
+const registerInput: Ref<RegisterCredentials> = ref({
+  name: "",
+  email: "",
+  password: "",
+});
+
+const v$ = useVuelidate(rules, registerInput);
+
+const registerUser = function (): void {
+  const result = v$;
+};
 </script>
 
 <template>
-    <form action="" class="mt-8 grid grid-cols-6 gap-6">
-        <div class="col-span-6">
-            <label for="" class="block text-sm font-medium text-gray-700">Name</label>
-            <input type="text" name="name" id=""
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm">
-        </div>
-        <div class="col-span-6">
-            <label for="" class="block text-sm font-medium text-gray-700">Email</label>
-            <input type="text" name="email" id=""
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm">
-        </div>
-        <div class="col-span-6">
-            <label for="" class="block text-sm font-medium text-gray-700">Password</label>
-            <input type="text" name="password" id=""
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm">
-        </div>
+  {{ registerInput }}
+  <form action="" class="mt-8 grid grid-cols-6 gap-6">
+    <div class="col-span-6">
+      <label for="name" class="block text-sm font-medium text-gray-700"
+        >Name</label
+      >
+      <input
+        v-model="registerInput.name"
+        type="text"
+        name="name"
+        id="name"
+        class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+      />
+    </div>
+    <div class="col-span-6">
+      <label for="email" class="block text-sm font-medium text-gray-700"
+        >Email</label
+      >
+      <input
+        v-model="registerInput.email"
+        type="email"
+        name="email"
+        id="email"
+        class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+      />
+    </div>
+    <div class="col-span-6">
+      <label for="password" class="block text-sm font-medium text-gray-700"
+        >Password</label
+      >
+      <input
+        v-model="registerInput.password"
+        type="password"
+        name="password"
+        id="password"
+        class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+      />
+    </div>
 
-        <div class="col-span-6">
-            <label for="MarketingAccept" class="flex gap-4">
-                <input type="checkbox" id="MarketingAccept" name="marketing_accept"
-                    class="size-5 rounded-md border-gray-200 bg-white shadow-sm" />
+    <div class="col-span-6">
+      <label for="MarketingAccept" class="flex gap-4">
+        <input
+          type="checkbox"
+          id="MarketingAccept"
+          name="marketing_accept"
+          class="size-5 rounded-md border-gray-200 bg-white shadow-sm"
+        />
 
-                <span class="text-sm text-gray-700">
-                    I want to receive emails about events, product updates and company announcements.
-                </span>
-            </label>
-        </div>
+        <span class="text-sm text-gray-700">
+          I want to receive emails about events, product updates and company
+          announcements.
+        </span>
+      </label>
+    </div>
 
-        <div class="col-span-6">
-            <p class="text-sm text-gray-500">
-                By creating an account, you agree to our
-                <a href="#" class="text-gray-700 underline"> terms and conditions </a>
-                and
-                <a href="#" class="text-gray-700 underline">privacy policy</a>.
-            </p>
-        </div>
+    <div class="col-span-6">
+      <p class="text-sm text-gray-500">
+        By creating an account, you agree to our
+        <a href="#" class="text-gray-700 underline"> terms and conditions </a>
+        and
+        <a href="#" class="text-gray-700 underline">privacy policy</a>.
+      </p>
+    </div>
 
-        <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-            <button type="submit"
-                class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
-                Create an account
-            </button>
+    <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+      <button
+        type="submit"
+        class="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500"
+      >
+        Create an account
+      </button>
 
-            <p class="mt-4 text-sm text-gray-500 sm:mt-0">
-                Already have an account?
-                <router-link to="/login" class="text-gray-700 underline">Log in</router-link>.
-            </p>
-        </div>
-    </form>
+      <p class="mt-4 text-sm text-gray-500 sm:mt-0">
+        Already have an account?
+        <router-link to="/login" class="text-gray-700 underline"
+          >Log in</router-link
+        >.
+      </p>
+    </div>
+  </form>
 </template>
