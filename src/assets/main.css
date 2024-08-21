@@ -38,3 +38,7 @@
   /* transform: translateX(2px); */
   /* transform: scale(0); */
 }
+
+.error {
+  @apply ring-1 ring-red-400;
+}
