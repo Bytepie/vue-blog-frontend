@@ -43,40 +43,30 @@ const registerUser = (): void => {
     @submit.prevent="registerUser()"
   >
     <div class="col-span-6">
-      <div class="flex flex-wrap items-center justify-between gap-2">
-        <label for="name" class="block text-sm font-medium text-gray-700"
-          >Name</label
-        >
-        <div
-          class="text-red-600 text-xs font-semibold float-right"
-          v-for="error of v$.name.$errors"
-          :key="error.$uid"
-        >
-          <div class="error-msg">{{ error.$message }}</div>
+      <div>
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <label for="name" class="block text-sm font-medium text-gray-700"
+            >Name</label
+          >
+          <div
+            class="text-red-600 text-xs font-semibold float-right"
+            v-for="error of v$.name.$errors"
+            :key="error.$uid"
+          >
+            <div class="error-msg">{{ error.$message }}</div>
+          </div>
         </div>
+        <input
+          :class="{ error: v$.name.$errors.length }"
+          v-model="registerInput.name"
+          type="text"
+          name="name"
+          id="name"
+          class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+        />
       </div>
-      <input
-        :class="{ error: v$.name.$errors.length }"
-        v-model="registerInput.name"
-        type="text"
-        name="name"
-        id="name"
-        class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-      />
     </div>
-
-    <!-- <div class="col-span-6">
-      <label for="name" class="block text-sm font-medium text-gray-700"
-        >Name</label
-      >
-      <input
-        v-model="registerInput.name"
-        type="text"
-        name="name"
-        id="name"
-        class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-      />
-    </div> -->
+    
     <div class="col-span-6">
       <label for="email" class="block text-sm font-medium text-gray-700"
         >Email</label
