@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { defineEmits } from "vue";
+// import { defineEmits } from "vue";
 import { onMounted, ref } from "vue";
 import type { Ref } from "vue";
 import type { RegisterCredentials } from "@/types/auth";
@@ -8,6 +8,7 @@ import { required, email, minLength } from "@vuelidate/validators";
 import InputField from '@/components/InputField.vue';
 
 const emit = defineEmits<{ (event: "updateTitle", value: string): void }>();
+
 const sendValue = () => {
     emit("updateTitle", "Register: Welcome to Our Blog!");
 };
@@ -19,7 +20,7 @@ onMounted(() => {
 const rules = {
     name: { required, minLength: minLength(3) },
     email: { required, email },
-    password: { required },
+    password: { required, minLength: minLength(6) },
 };
 
 const registerInput: Ref<RegisterCredentials> = ref({
@@ -40,20 +41,19 @@ const registerUser = (): void => {
     {{ registerInput }}
     <form action="" class="mt-8 grid grid-cols-6 gap-6" @submit.prevent="registerUser()">
         <div class="col-span-6">
-            <InputField :label="'Name'" :form-errors="v$.name.$errors" v-model="registerInput.name" name="name"
-                id="name" type="text">
+            <InputField label="Name" :form-errors="v$.name.$errors" v-model="registerInput.name" name="name" id="name"
+                type="text">
             </InputField>
         </div>
-
         <div class="col-span-6">
-            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-            <input v-model="registerInput.email" type="email" name="email" id="email"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+            <InputField label="Email" :form-errors="v$.email.$errors" v-model="registerInput.email" name="email"
+                id="email" type="text">
+            </InputField>
         </div>
         <div class="col-span-6">
-            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-            <input v-model="registerInput.password" type="password" name="password" id="password"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+            <InputField label="Password" :form-errors="v$.password.$errors" v-model="registerInput.password"
+                name="password" id="password" type="password">
+            </InputField>
         </div>
 
         <div class="col-span-6">

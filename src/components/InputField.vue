@@ -32,21 +32,9 @@ const onInput = (event: Event) => {
   <div>
     <div class="flex flex-wrap items-center justify-between gap-2">
       <label v-if="label" :for="id" class="block text-sm font-medium text-gray-700">{{ label }}</label>
-      <ErrorMessage :formErrors="props.formErrors"></ErrorMessage>
+      <ErrorMessage v-if="props.formErrors" :formErrors="props.formErrors"></ErrorMessage>
     </div>
-    <input :id="id" :name :value="modelValue" @input="onInput" :class="{ error: props.formErrors.length }"
+    <input :id :type :name :value="modelValue" @input="onInput" :class="{ error: props.formErrors.length }"
       class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
   </div>
 </template>
-
-
-<!-- <template>
-  <div>
-    <div class="flex flex-wrap items-center justify-between gap-2">
-      <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-      <ErrorMessage :formErrors="props.formErrors"></ErrorMessage>
-    </div>
-    <input :class="{ error: props.formErrors.length }" v-model="registerInput.name" type="text" name="name" id="name"
-      class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
-  </div>
-</template> -->
