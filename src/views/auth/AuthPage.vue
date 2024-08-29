@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
+// import { RouterLink, RouterView } from "vue-router";
+import GuestLayout from "@/components/layouts/GuestLayout.vue";
 import { ref } from "vue";
 
 const parentValue = ref<string | null>(null);
@@ -13,6 +14,7 @@ const handleUpdateValue = (value: string) => {
     <RouterView></RouterView>
 </template> -->
 <template>
+  <GuestLayout/>
   <section class="bg-white w-full">
     <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
       <aside

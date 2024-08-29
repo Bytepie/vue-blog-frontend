@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
+// import { RouterLink, RouterView } from "vue-router";
 // import home from "@/views/home/home.vue";
+// import GuestLayout from "./components/layouts/GuestLayout.vue";
 </script>
 
 <template>
-  <div class="w-full h-screen">
-    <header>
+  <div class="w-full">
+    <!-- <header>
       <nav
         class="rounded-b border-b border-gray-300 select-none bg-white font-semibold flex justify-between w-full mb-4 p-4"
       >
@@ -31,14 +32,14 @@ import { RouterLink, RouterView } from "vue-router";
           >
         </div>
       </nav>
-    </header>
-    <div class="mb-8 rounded overflow-hidden border border-gray-300">
+    </header> -->
+    <div class="rounded overflow-hidden border border-gray-300">
+      <router-view />
       <!-- <router-view v-slot="{ Component }" class="rounded overflow-hidden border border-gray-300">
         <transition name="fade-slide" mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view> -->
-      <router-view />
     </div>
   </div>
 </template>
