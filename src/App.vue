@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import { RouterLink, RouterView } from "vue-router";
+// import { RouterLink, RouterView, useRoute } from "vue-router";
 // import home from "@/views/home/home.vue";
 // import GuestLayout from "./components/layouts/GuestLayout.vue";
 </script>
@@ -33,11 +33,13 @@
         </div>
       </nav>
     </header> -->
-    <div class="rounded overflow-hidden border border-gray-300">
+    <div class="rounded">
       <router-view />
-      <!-- <router-view v-slot="{ Component }" class="rounded overflow-hidden border border-gray-300">
+      <!-- <router-view v-slot="{ Component }">
         <transition name="fade-slide" mode="out-in">
-          <component :is="Component" />
+          <div :key="useRoute().path">
+            <component :is="Component"></component>
+          </div>
         </transition>
       </router-view> -->
     </div>

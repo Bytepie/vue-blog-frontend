@@ -28,12 +28,12 @@ const router = createRouter({
       ],
     },
     {
-      path: "/admin",
+      path: "/dashboard",
       name: "admin",
       component: AdminLayout,
       children: [
         {
-          path: "/admin",
+          path: "/dashboard",
           name: "dashboard",
           component: () => import("../views/admin/DashboardPage.vue"),
         },
@@ -48,6 +48,10 @@ const router = createRouter({
           component: () => import("../views/admin/PostListPage.vue"),
         },
       ],
+    },
+    {
+      path: "/:notFound",
+      component: import("../views/NotFound.vue"),
     },
     // {
     //   path: "/about",
