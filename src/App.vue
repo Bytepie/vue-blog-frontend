@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="w-full h-full min-h-screen">
     <!-- <header>
       <nav
         class="rounded-b border-b border-gray-300 select-none bg-white font-semibold flex justify-between w-full mb-4 p-4"

@@ -15,7 +15,7 @@ import AuthNav from './AuthNav.vue';
                 <AuthNav />
             </nav>
         </header>
-        <div class="p-2 md:p-4 bg-white rounded border-t-2 border-blue-200">
+        <div class="p-2 md:p-4">
             <router-view></router-view>
         </div>
 

@@ -30,7 +30,7 @@ const addPost = (): void => {
 </script>
 
 <template>
-    <div>
+    <div class="max-w-screen-md mx-auto">
         <h1 class="text-lg font-semibold mb-4">Create Post</h1>
         <form action="" @submit.prevent="addPost()" class="flex flex-col gap-2">
             <div class="w-full">
