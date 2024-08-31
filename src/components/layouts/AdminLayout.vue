@@ -7,12 +7,20 @@ import AuthNav from './AuthNav.vue';
 
 <template>
 
-    <header>
-        <nav
-            class="rounded-b border-b border-gray-300 select-none bg-white font-semibold flex justify-between w-full mb-4 p-4">
-            <BarLogo />
-            <AuthNav />
-        </nav>
-    </header>
+    <div class="flex gap-2 w-full flex-col mb-2">
+        <header>
+            <nav
+                class="rounded-b border-b border-blue-200 select-none bg-white font-semibold flex justify-between w-full mb-4 p-4">
+                <BarLogo />
+                <AuthNav />
+            </nav>
+        </header>
+        <div class="p-2 md:p-4 bg-white rounded border-t-2 border-blue-200">
+            <router-view></router-view>
+        </div>
+
+    </div>
+
+
 
 </template>

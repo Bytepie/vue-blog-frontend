@@ -2,7 +2,7 @@
 import { defineEmits } from "vue";
 import { onMounted, ref } from "vue";
 import type { Ref } from "vue";
-import type { LoginCredentials } from "@/types/auth";
+import type { LoginCredentials } from "@/types/types.ts";
 const emit = defineEmits<{ (event: "updateTitle", value: string): void }>();
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";

@@ -3,5 +3,7 @@ import AdminLayout from '@/components/layouts/AdminLayout.vue';
 </script>
 
 <template>
-    <AdminLayout />
+    <div>
+        <AdminLayout />
+    </div>
 </template>

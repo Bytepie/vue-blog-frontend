@@ -2,7 +2,7 @@
 // import { defineEmits } from "vue";
 import { onMounted, ref } from "vue";
 import type { Ref } from "vue";
-import type { RegisterCredentials } from "@/types/auth";
+import type { RegisterCredentials } from "@/types/types.ts";
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
 import InputField from '@/components/InputField.vue';

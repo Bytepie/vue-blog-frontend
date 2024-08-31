@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // import { RouterLink, RouterView } from "vue-router";
+import { useRoute } from "vue-router";
 import GuestLayout from "@/components/layouts/GuestLayout.vue";
 import { ref } from "vue";
 
@@ -46,13 +47,15 @@ const handleUpdateValue = (value: string) => {
             <button>Login</button>
             <button>Register</button>
           </div> -->
-            <router-view @updateTitle="handleUpdateValue"></router-view>
+            <!-- <router-view @updateTitle="handleUpdateValue"></router-view> -->
 
-            <!-- <router-view v-slot="{ Component }" @updateTitle="handleUpdateValue">
-            <transition name="fade-slide" mode="out-in">
-              <component :is="Component" />
-            </transition>
-          </router-view> -->
+            <router-view v-slot="{ Component }" @updateTitle="handleUpdateValue">
+              <transition name="fade-slide" mode="out-in">
+                <div :key="useRoute().path">
+                  <component :is="Component" />
+                </div>
+              </transition>
+            </router-view>
           </div>
         </main>
       </div>
