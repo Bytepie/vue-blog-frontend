@@ -63,7 +63,9 @@ const addPost = (): void => {
         </form>
         <div class="flex flex-col gap-2">
             <h2>Preview</h2>
-            {{ postInputs.post_content }}
+            <div class="prose" v-html="postInputs.post_content">
+
+            </div>
         </div>
     </div>
 </template>

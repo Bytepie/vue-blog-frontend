@@ -8,7 +8,7 @@ import { ref } from 'vue';
 
 const props = defineProps<{
     formErrors?: ErrorObject[] | any;
-    modelValue: string | number;
+    modelValue: string;
     label?: string;
     id?: string;
     placeholder?: string;
@@ -16,7 +16,7 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-    (e: 'update:modelValue', value: string | number): void;
+    (e: 'update:modelValue', value: string): void;
 }>();
 
 // const editor = useEditor({
@@ -24,6 +24,7 @@ const emit = defineEmits<{
 //     extensions: [StarterKit],
 // })
 const editor = ref<Editor | null>(null);
+
 onMounted(() => {
     editor.value = new Editor({
         extensions: [StarterKit],
@@ -40,9 +41,9 @@ onMounted(() => {
 //     const target = event.target as HTMLInputElement;
 //     emit('update:modelValue', target.value);
 // }
-const onInput = () => {
-    emit('update:modelValue', editor.value?.getHTML);
-}
+// const onInput = () => {
+//     emit('update:modelValue', editor.value?.getHTML);
+// }
 
 onBeforeUnmount(() => {
     if (editor.value) {
@@ -58,7 +59,7 @@ onBeforeUnmount(() => {
             <label v-if="label" :for="id" class="block text-sm font-medium text-gray-700">{{ label }}</label>
             <ErrorMessage v-if="props.formErrors" :formErrors="props.formErrors"></ErrorMessage>
         </div>
-        <editor-content :editor="editor" :id :value="modelValue" @input="onInput"
+        <editor-content :editor="editor" :id :value="modelValue"
             :class="{ error: props.formErrors.length ? props.formErrors.length : '' }"
             class="mt-1 w-full rounded border border-gray-200 text-sm shadow-sm" />
     </div>
