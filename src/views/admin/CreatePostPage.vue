@@ -45,7 +45,7 @@ const addPost = (): void => {
                 </div>
                 <textarea id="post_content" name="post_content" v-model="postInputs.post_content"
                     :class="{ error: v$.post_content.$errors.length }"
-                    class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm">
+                    class="mt-1 w-full rounded border-gray-200 bg-white text-sm text-gray-700 shadow-sm">
                 </textarea>
 
             </div>
