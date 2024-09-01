@@ -4,7 +4,7 @@ import ErrorMessage from "@/components/ErrorMessage.vue";
 // import { defineProps, defineEmits, useAttrs } from 'vue';
 
 const props = defineProps<{
-  formErrors?: ErrorObject[];
+  formErrors?: ErrorObject[] | any;
   modelValue: string | number;
   label?: string;
   id?: string;

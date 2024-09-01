@@ -6,6 +6,8 @@ import type { Ref } from "vue";
 import { ref } from 'vue';
 import type { PostInputs } from '@/types/types';
 import ErrorMessage from '@/components/ErrorMessage.vue';
+import TextArea from '@/components/TextArea.vue';
+
 const postInputs: Ref<PostInputs> = ref({
     title: "",
     post_content: "",
@@ -39,14 +41,16 @@ const addPost = (): void => {
                 </InputField>
             </div>
             <div class="w-full">
-                <div class="flex flex-wrap items-center justify-between gap-2">
+                <!-- <div class="flex flex-wrap items-center justify-between gap-2">
                     <label for="post_content" class="block text-sm font-medium text-gray-700">Post Content</label>
                     <ErrorMessage v-if="v$.post_content.$errors" :formErrors="v$.post_content.$errors"></ErrorMessage>
-                </div>
-                <textarea id="post_content" name="post_content" v-model="postInputs.post_content"
+                </div> -->
+                <TextArea id="post_content" label="Post Content" v-model="postInputs.post_content"
+                    :formErrors="v$.post_content.$errors"></TextArea>
+                <!-- <textarea id="post_content" name="post_content" v-model="postInputs.post_content"
                     :class="{ error: v$.post_content.$errors.length }"
                     class="mt-1 w-full rounded border-gray-200 bg-white text-sm text-gray-700 shadow-sm">
-                </textarea>
+                </textarea> -->
 
             </div>
 
@@ -57,5 +61,9 @@ const addPost = (): void => {
                 </button>
             </div>
         </form>
+        <div class="flex flex-col gap-2">
+            <h2>Preview</h2>
+            {{ postInputs.post_content }}
+        </div>
     </div>
 </template>
