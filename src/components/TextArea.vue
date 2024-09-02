@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted } from 'vue';
-import { Editor, useEditor, EditorContent } from '@tiptap/vue-3';
+import { Editor, EditorContent } from '@tiptap/vue-3';
 import StarterKit from '@tiptap/starter-kit';
 import type { ErrorObject } from "@vuelidate/core";
 import ErrorMessage from "@/components/ErrorMessage.vue";
@@ -68,12 +68,37 @@ onBeforeUnmount(() => {
 <style>
 /* Basic editor styles */
 .tiptap {
+
+    outline: none;
+
     :first-child {
         margin-top: 0;
     }
 
     /* List styles */
-    ul,
+
+    @apply prose-xl leading-tight;
+
+    /* line-height: 1.5; */
+}
+
+.tiptap {
+    p {
+        @apply -my-1;
+    }
+}
+
+.tiptap {
+    @apply min-h-48 p-2 bg-white rounded-md;
+}
+
+.tiptap:focus {
+    @apply ring-2 outline-blue-600;
+}
+</style>
+
+
+<!-- ul,
     ol {
         padding: 0 1rem;
         margin: 1.25rem 1rem 1.25rem 0.4rem;
@@ -91,7 +116,7 @@ onBeforeUnmount(() => {
     h4,
     h5,
     h6 {
-        line-height: 1.1;
+        line-height: 1.5;
         margin-top: 2.5rem;
         text-wrap: pretty;
     }
@@ -155,10 +180,4 @@ onBeforeUnmount(() => {
         border: none;
         border-top: 1px solid var(--gray-2);
         margin: 2rem 0;
-    }
-}
-
-.tiptap {
-    @apply min-h-48 bg-white;
-}
-</style>
+    } -->

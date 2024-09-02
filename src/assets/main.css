@@ -42,3 +42,7 @@
 .error {
   @apply ring-1 ring-red-400;
 }
+
+.prose-xl p {
+  @apply -my-1 text-lg;
+}
